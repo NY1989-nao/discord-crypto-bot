@@ -1,0 +1,19 @@
+{
+  "name": "discord-crypto-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NY1989-nao/discord-crypto-bot.git"
+  },
+  "author": "Naoki Yamazaki",
+  "license": "BSD2",
+  "bugs": {
+    "url": "https://github.com/NY1989-nao/discord-crypto-bot/issues"
+  },
+  "homepage": "https://github.com/NY1989-nao/discord-crypto-bot#readme"
+}
