@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "format": "prettier  --print-width 120 --write src/**/*.js ./index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,14 @@
   "bugs": {
     "url": "https://github.com/NY1989-nao/discord-crypto-bot/issues"
   },
-  "homepage": "https://github.com/NY1989-nao/discord-crypto-bot#readme"
+  "homepage": "https://github.com/NY1989-nao/discord-crypto-bot#readme",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.0",
+    "heroku": "^7.38.2",
+    "prettier": "^1.19.1"
+  }
 }
