@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "local": "node --inspect index.js",
     "format": "prettier  --print-width 120 --write src/**/*.js ./index.js"
   },
   "repository": {
@@ -18,8 +19,11 @@
   },
   "homepage": "https://github.com/NY1989-nao/discord-crypto-bot#readme",
   "dependencies": {
+    "axios": "^0.19.2",
+    "clone": "^2.1.2",
     "discord.js": "^11.5.1",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "moment": "^2.24.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.0",
