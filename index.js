@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 const BitfinexApiWrapper = require("./lib/bitfinex-api-wrapper");
 require("dotenv").config();
 
-const PORT = process.env.PORT || 3000;
 const ACCESS_TOKEN = process.env.ACCESS_TOKEN;
 const client = new Discord.Client();
 const bfx = new BitfinexApiWrapper();
@@ -13,12 +12,14 @@ client.on("ready", () => {
 
 client.on("message", async msg => {
   if (msg.content === "/finex") {
-    const candle = await bfx.getBtcUsdShorts();
+    const candle = await bfx.getBtcUsdShorts(60);
     if (!candle) {
       return;
     }
 
-    msg.reply(`\n[BTCUSD Shorts 変動通知（1時間足）]\n\n日時：${candle.day}\n\n終値\n\n\`\`\`\diff\n${candle.price}\`\`\`変動比率\n\`\`\`javascript\n${candle.ratio}%\`\`\``);
+    msg.reply(
+      `\n[BTCUSD Shorts 変動通知（1時間足）]\n\n日時：${candle.day}\n\n終値\n\n\`\`\`\diff\n${candle.price}\`\`\`変動比率\n\`\`\`javascript\n${candle.ratio}%\`\`\``
+    );
   }
 });
 
