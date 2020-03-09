@@ -18,7 +18,8 @@ describe('BitfinexApiWrapper', () => {
     it('candle stick is found', async () => {
       const candle = await bfx.getBtcUsdShorts(15);
       expect(candle).toHaveProperty('day');
-      expect(candle).toHaveProperty('price');
+      expect(candle).toHaveProperty('openPrice');
+      expect(candle).toHaveProperty('closePrice');
       expect(candle).toHaveProperty('ratio');
     });
 

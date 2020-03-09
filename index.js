@@ -18,7 +18,7 @@ client.on("message", async msg => {
     }
 
     msg.reply(
-      `\n[BTCUSD Shorts 変動通知（1時間足）]\n\n日時：${candle.day}\n\n終値\n\n\`\`\`\diff\n${candle.price}\`\`\`変動比率\n\`\`\`javascript\n${candle.ratio}%\`\`\``
+      `\n[BTCUSD Shorts 変動通知（1時間足）]\n\n日時：${candle.day}\n\n始値\n\`\`\`diff\n${candle.openPrice}\`\`\`\n終値\n\`\`\`\diff\n${candle.closePrice}\`\`\`\n変動比率\n\`\`\`javascript\n${candle.ratio}%\`\`\``
     );
   }
 });
