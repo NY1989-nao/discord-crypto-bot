@@ -1,26 +1,23 @@
 const Discord = require("discord.js");
-const BitfinexApiWrapper = require("./lib/bitfinex-api-wrapper");
+const WebhookClient = require('./lib/webhook-client');
 require("dotenv").config();
 
 const ACCESS_TOKEN = process.env.ACCESS_TOKEN;
-const client = new Discord.Client();
-const bfx = new BitfinexApiWrapper();
+const WEBHOOK_ID = process.env.WEBHOOK_ID;
+const WEBHOOK_TOKEN = process.env.WEBHOOK_TOKEN;
 
-client.on("ready", () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-});
+const webhookClient = new WebhookClient(WEBHOOK_ID, WEBHOOK_TOKEN);
+webhookClient.initialize();
 
-client.on("message", async msg => {
-  if (msg.content === "/finex") {
-    const candle = await bfx.getBtcUsdShorts(60);
-    if (!candle) {
-      return;
-    }
+// const client = new Discord.Client();
+// client.once("ready", () => {
+  // console.log(`Logged in as ${client.user.tag}!`);
+// });
 
-    msg.reply(
-      `\n[BTCUSD Shorts 変動通知（1時間足）]\n\n日時：${candle.day}\n\n始値\n\`\`\`diff\n${candle.openPrice}\`\`\`\n終値\n\`\`\`\diff\n${candle.closePrice}\`\`\`\n変動比率\n\`\`\`javascript\n${candle.ratio}%\`\`\``
-    );
-  }
-});
+// client.on("message", async msg => {
+//   if (msg.content === "/finex") {
+//     msg.reply();
+//   }
+// });
 
-client.login(ACCESS_TOKEN);
+// client.login(ACCESS_TOKEN);
